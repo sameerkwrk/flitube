@@ -14,14 +14,14 @@ import ffmpeg from "fluent-ffmpeg";
 //   cliProgress.Presets.shades_grey
 // );
 
-function timeToSeconds(timeString) {
-  const parts = timeString.split(":");
-  const hours = parseInt(parts[0]) || 0;
-  const minutes = parseInt(parts[1]) || 0;
-  const seconds = parseFloat(parts[2]) || 0;
+// function timeToSeconds(timeString) {
+//   const parts = timeString.split(":");
+//   const hours = parseInt(parts[0]) || 0;
+//   const minutes = parseInt(parts[1]) || 0;
+//   const seconds = parseFloat(parts[2]) || 0;
 
-  return hours * 3600 + minutes * 60 + seconds;
-}
+//   return hours * 3600 + minutes * 60 + seconds;
+// }
 
 export function play(url, cb) {
   const speaker = new Speaker({
@@ -35,7 +35,7 @@ export function play(url, cb) {
         filter: "audioonly",
         quality: "highestaudio",
         highWaterMark: 1 << 25,
-      })
+      }),
     )
     .audioCodec("pcm_s16le")
     .format("s16le") // Specify raw PCM format
